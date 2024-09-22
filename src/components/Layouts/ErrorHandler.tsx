@@ -1,4 +1,5 @@
-import { Link, useLocation, useRouteError } from "react-router-dom";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 interface IProps {
   statusCode?: number;
@@ -17,8 +18,19 @@ interface IError {
 }
 
 const ErrorHandler = ({ statusCode = 500, title = "Server Error" }: IProps) => {
-  const { pathname } = useLocation();
-  const error = useRouteError() as IError | null;
+  const { pathname } = useRouter();
+
+  // const error = useRouteError() as IError | null;
+  const error: IError = {
+    data: "An unexpected error occurred.",
+    error: {
+      message: "An unexpected error occurred.",
+      stack: "Error stack trace",
+    },
+    internal: false,
+    status: 500,
+    statusText: "Server Error",
+  };
 
   // Optional: Log error details to an external service
 
@@ -64,16 +76,16 @@ const ErrorHandler = ({ statusCode = 500, title = "Server Error" }: IProps) => {
         )}
         <div className="flex items-center justify-center gap-4 my-10">
           <Link
-            to="/"
+            href="/"
             className="inline-block bg-indigo-600 p-2 text-white hover:!text-white rounded-md"
-            reloadDocument
+            prefetch={false}
           >
             Home
           </Link>
           <Link
-            to={pathname}
+            href={pathname}
             className="inline-block bg-indigo-600 p-2 text-white hover:!text-white rounded-md"
-            reloadDocument
+            prefetch
           >
             Refresh
           </Link>

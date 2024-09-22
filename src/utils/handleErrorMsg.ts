@@ -1,4 +1,4 @@
-import { TFunction } from "i18next";
+import { Translate } from "next-translate";
 
 // Define a type for the message object
 interface ErrorMessage {
@@ -14,7 +14,7 @@ interface ErrorObject {
 
 export default function handleErrorMsg(
   error: ErrorObject,
-  t: TFunction
+  t: Translate
 ): string | null {
   let errMsg: string | null = null;
 
