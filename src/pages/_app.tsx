@@ -1,10 +1,10 @@
-import "@/styles/globals.css";
-import type { AppProps } from "next/app";
-import localFont from "next/font/local";
-import { useRouter } from "next/router";
 import { useEffect } from "react";
+import type { AppProps } from "next/app";
+import { useRouter } from "next/router";
+import localFont from "next/font/local";
 import Root from "@/components/Layouts/Root";
 import useLang from "@/hooks/useLang";
+import "@/styles/globals.css";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",

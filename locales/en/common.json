@@ -1,4 +1,10 @@
 {
+  "404": {
+    "title": "Page not found",
+    "description": "The page <0>{{path}}</0> you are looking for does not exist.",
+    "home": "Go to home page",
+    "refresh": "Refresh the page"
+  },
   "app": {
     "title": "Sihatuk",
     "description": "Sihatuk is a platform that allows you to find the best doctors in your area and book an appointment with them."
