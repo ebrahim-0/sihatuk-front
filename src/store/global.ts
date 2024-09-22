@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { globalState } from "@utils/global-state";
+import { globalState } from "@/utils/global-state";
 import { create } from "zustand";
 
 interface GlobalState {

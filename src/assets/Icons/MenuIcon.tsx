@@ -1,4 +1,4 @@
-import { IconProps } from "@ITypes";
+import { IconProps } from "@/ITypes";
 
 const MenuIcon: React.FC<IconProps> = (props) => (
   <svg

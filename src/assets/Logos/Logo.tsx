@@ -1,4 +1,4 @@
-import { IconProps } from "@ITypes";
+import { IconProps } from "@/ITypes";
 
 const Logo: React.FC<IconProps> = (props) => (
   <svg
