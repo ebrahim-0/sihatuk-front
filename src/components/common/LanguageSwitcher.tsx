@@ -8,8 +8,8 @@ const LanguageSwitcher = () => {
   const handleLangChange = () => {
     const newLang = lang === "en" ? "ar" : "en";
     setLanguage(newLang);
-    document.documentElement.lang = newLang;
-    document.documentElement.dir = newLang === "en" ? "ltr" : "rtl";
+    // document.documentElement.lang = newLang;
+    // document.documentElement.dir = newLang === "en" ? "ltr" : "rtl";
   };
 
   return (
