@@ -1,0 +1,43 @@
+{
+  "app": {
+    "title": "Sihatuk",
+    "description": "Sihatuk is a platform that allows you to find the best doctors in your area and book an appointment with them."
+  },
+  "select": {
+    "placeholder": "Select the category"
+  },
+  "navbar": {
+    "home": "home",
+    "login": "login",
+    "register": "register"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "welcome": "Welcome to the app",
+  "validation": {
+    "required": "This field is required",
+    "price_length": "Price must be at least {{min}} character",
+    "images_length": "Images must be at least {{min}} images",
+    "nameRequired": "Name is required",
+    "priceRequired": "Price is required",
+    "priceMin": "Price must be greater than or equal to 1",
+    "categoryRequired": "Category is required",
+    "descriptionRequired": "Description is required",
+    "imageRequired": "Image is required"
+  },
+  "login": {
+    "title": "Login",
+    "name": "Name",
+    "price": "Price",
+    "category": "Category",
+    "image": "Image",
+    "description": "Description",
+    "submit": "Submit",
+    "category1": "Category 1",
+    "category2": "Category 2",
+    "category3": "Category 3"
+  }
+}

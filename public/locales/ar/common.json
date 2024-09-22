@@ -1,0 +1,43 @@
+{
+  "app": {
+    "title": "صحتك",
+    "description": "صحتك هي منصة تتيح لك العثور على أفضل الأطباء في منطقتك وحجز موعد معهم."
+  },
+  "select": {
+    "placeholder": "اختر الفئة"
+  },
+  "navbar": {
+    "home": "الصفحة الرئيسية",
+    "login": "تسجيل الدخول",
+    "register": "تسجيل الحساب"
+  },
+  "theme": {
+    "light": "فاتح",
+    "dark": "داكن",
+    "system": "النظام"
+  },
+  "welcome": "مرحبا بك في التطبيق",
+  "validation": {
+    "required": "هذا الحقل مطلوب",
+    "price_length": "يجب أن يكون السعر على الأقل {{min}} حرفًا",
+    "images_length": "يجب أن تكون الصور على الأقل {{min}} صور",
+    "nameRequired": "الاسم مطلوب",
+    "priceRequired": "السعر مطلوب",
+    "priceMin": "يجب أن يكون السعر أكبر من أو يساوي 1",
+    "categoryRequired": "الفئة مطلوبة",
+    "descriptionRequired": "الوصف مطلوب",
+    "imageRequired": "الصورة مطلوبة"
+  },
+  "login": {
+    "title": "تسجيل الدخول",
+    "name": "الاسم",
+    "price": "السعر",
+    "category": "الفئة",
+    "image": "الصورة",
+    "description": "الوصف",
+    "submit": "إرسال",
+    "category1": "الفئة 1",
+    "category2": "الفئة 2",
+    "category3": "الفئة 3"
+  }
+}
