@@ -3,6 +3,8 @@ import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import localFont from "next/font/local";
 import Root from "@/components/Layouts/Root";
+import Cookies from "universal-cookie";
+
 import useLang from "@/hooks/useLang";
 import "@/styles/globals.css";
 
@@ -35,6 +37,13 @@ export default function App({ Component, pageProps }: AppProps) {
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
   }, [lang]);
+
+  useEffect(() => {
+    const cookiesStored = new Cookies();
+    console.log(`this is the stored cookie: ${cookiesStored.get("reactfromlog")}`);
+    const cookie = new Cookies();
+    cookie.set("reactfromlog", "this_works", { path: "/" });
+  }, []);
 
   return (
     <Root>

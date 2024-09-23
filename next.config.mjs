@@ -6,7 +6,7 @@ const nextConfig = nextTranslate({
   reactStrictMode: true,
   swcMinify: true, // Enable SWC minification for improved performance
   compiler: {
-    removeConsole: true,
+    removeConsole: process.env.NODE_ENV === "production",
   },
 });
 
