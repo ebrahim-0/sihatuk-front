@@ -6,6 +6,7 @@ import Root from "@/components/Layouts/Root";
 
 import useLang from "@/hooks/useLang";
 import "@/styles/globals.css";
+import Suspense from "@/components/ui/Suspense";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -19,8 +20,8 @@ const geistMono = localFont({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
-  const { locale } = useRouter();
   const { lang } = useLang();
+  const { locale } = useRouter();
 
   useEffect(() => {
     const persistLocaleCookie = () => {
@@ -43,7 +44,9 @@ export default function App({ Component, pageProps }: AppProps) {
         dir={pageProps.__lang === "ar" ? "rtl" : "ltr"}
         className={`${geistSans.variable} ${geistMono.variable}`}
       >
-        <Component {...pageProps} />
+        <Suspense>
+          <Component {...pageProps} />
+        </Suspense>
       </div>
     </Root>
   );
