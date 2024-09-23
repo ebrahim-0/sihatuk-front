@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Navbar from "@/components/Navbar/Navbar";
 import { cn } from "@/lib/utils";
 import { Toaster } from "react-hot-toast";
-import useDispatch from "@/store/global";
+import useDispatch from "@/store";
 import { ThemeProvider } from "@/components/common/theme-provider";
 import RenderMeta from "@/components/common/RenderMeta";
 import useLang from "@/hooks/useLang";

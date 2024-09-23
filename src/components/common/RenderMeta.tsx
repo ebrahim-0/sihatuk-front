@@ -22,6 +22,10 @@ const RenderMeta: React.FC<RootProps> = ({ title, description, keywords }) => {
 
   return (
     <Head>
+      <link rel="manifest" href="/manifest.json" />
+      <meta name="theme-color" content="#ffffff" />
+      <link rel="apple-touch-icon" href="/icons/logo.svg" />
+
       <meta name="description" content={description} />
       <meta name="keywords" content={`${keywords || ""} ${moreKeywords}`} />
       <meta name="author" content="Your Name" />
@@ -45,7 +49,7 @@ const RenderMeta: React.FC<RootProps> = ({ title, description, keywords }) => {
 
       {/* Twitter Card Meta Tags */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={title} />
+      {/* <meta name="twitter:title" content={title} /> */}
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={logoUrl} />
 

@@ -45,11 +45,20 @@ const Navbar = ({ brandName }: { brandName: string }) => {
       {["sm-phone", "phone", "tablet"].includes(screen) && (
         <MobileMenu lang={lang} brandName={brandName} />
       )}
-      <div className="flex items-center space-x-4" dir="ltr">
-        <Link href="/" className="hidden md:flex">
-          <Logo className="h-6 w-6" />
-          <span className="sr-only">{brandName}</span>
-        </Link>
+      <Link
+        href="/"
+        className={cn(
+          "flex",
+          checkClass(["sm-phone", "phone", "tablet"].includes(screen), [
+            "order-1 ltr:ml-auto rtl:mr-auto",
+            "",
+          ])
+        )}
+      >
+        <Logo className="h-6 w-6" />
+        <span className="sr-only">{brandName}</span>
+      </Link>
+      <div className="flex items-center ltr:ml-4 rtl:lr-0 md:mx-4 gap-4">
         <ModeToggle />
         <LanguageSwitcher />
       </div>

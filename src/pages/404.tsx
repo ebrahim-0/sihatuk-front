@@ -1,19 +1,36 @@
 import { Button } from "@/components/ui/button";
 import useLang from "@/hooks/useLang";
-import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Trans from "next-translate/Trans";
+import Head from "next/head";
+import { useEffect, useState } from "react";
 
-const ErrorHandler = () => {
+const Custom404 = () => {
   const { asPath } = useRouter();
   const { t } = useLang();
+
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (isMounted) {
+      document.title = t("404.title");
+    }
+    return () => {
+      setIsMounted(false);
+    };
+  }, []);
 
   return (
     <>
       <Head>
         <title>{t("404.title")}</title>
       </Head>
+
       <div className="fixed inset-0 flex items-center justify-center p-5 w-full bg-background">
         <div className="text-center">
           <div className="inline-flex rounded-full bg-blue-100 p-4">
@@ -67,4 +84,4 @@ const ErrorHandler = () => {
   );
 };
 
-export default ErrorHandler;
+export default Custom404;

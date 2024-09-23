@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import globalStore from "@/store/global";
+import globalStore from "@/store";
 
 const useSelector = (key: string | string[], defaultValue: any = "") => {
   const { state, dispatch } = globalStore();

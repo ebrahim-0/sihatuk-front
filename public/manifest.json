@@ -1,0 +1,23 @@
+{
+  "name": "Sihatuk",
+  "short_name": "Sihatuk",
+  "description": "Sihatuk is a platform that allows you to find the best doctors in your area and book an appointment with them.",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": "/",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/icons/logo.svg",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/logo.svg",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
