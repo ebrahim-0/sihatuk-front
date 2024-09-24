@@ -105,7 +105,7 @@ const Login = () => {
   };
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center py-6">
+    <section className="min-h-screen flex flex-col items-center mx-6 sm:mx-0 justify-center py-6">
       <div className="w-full rounded-lg shadow dark:shadow-white sm:max-w-lg p-6 sm:p-8">
         <h1 className="text-2xl font-semibold mb-6">{t("login.title")}</h1>
         <Form {...form}>
