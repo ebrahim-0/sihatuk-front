@@ -10,7 +10,13 @@
     "description": "Sihatuk is a platform that allows you to find the best doctors in your area and book an appointment with them."
   },
   "select": {
-    "placeholder": "Select the category"
+    "placeholder": "Select the category",
+    "noResults": "No results found.",
+    "search": "Search...",
+    "select_all": "Select all",
+    "clear": "Clear",
+    "close": "Close",
+    "more": "More"
   },
   "navbar": {
     "home": "home",

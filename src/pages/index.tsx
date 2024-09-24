@@ -1,11 +1,12 @@
-import useLang from "@/hooks/useLang";
+import Loading from "@/components/ui/Loading";
+import dynamic from "next/dynamic";
 
-export default function Home() {
-  const { t } = useLang("common");
+const Home = dynamic(() => import("@/components/CompPages/Home"), {
+  loading: () => <Loading />,
+});
 
-  return (
-    <div className="h-[calc(100vh-160px)] grid place-content-center">
-      <h1>{t("welcome")}</h1>
-    </div>
-  );
-}
+const index = () => {
+  return <Home />;
+};
+
+export default index;

@@ -68,34 +68,36 @@
 @layer utilities {
   input[type="number"]::-webkit-inner-spin-button {
     @apply appearance-none;
-    width: 1.8em;
+    /* width: 1.8em;
     opacity: 1;
     z-index: 49;
     position: absolute;
     top: 0;
-    bottom: 0;
+    bottom: 0; */
   }
-  :dir(ltr) input[type="number"]::-webkit-outer-spin-button,
+
+  /* :dir(ltr) input[type="number"]::-webkit-outer-spin-button,
   :dir(ltr) input[type="number"]::-webkit-inner-spin-button {
     right: 12px;
     border-left: 1px solid #bbb;
-  }
+  } */
 
+  /* 
   :dir(rtl) input[type="number"]::-webkit-outer-spin-button,
   :dir(rtl) input[type="number"]::-webkit-inner-spin-button {
     left: 12px;
     border-right: 1px solid #bbb;
-  }
+  } */
 
-  input[type="number"] {
+  /* input[type="number"] {
     -moz-appearance: textfield;
     position: relative;
-  }
+  } */
 
-  input[type="number"]:hover,
+  /* input[type="number"]:hover,
   input[type="number"]:focus {
     border-color: #999;
-  }
+  } */
 
   input:-webkit-autofill,
   input:-webkit-autofill:hover,

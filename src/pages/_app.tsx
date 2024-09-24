@@ -6,7 +6,6 @@ import Root from "@/components/Layouts/Root";
 
 import useLang from "@/hooks/useLang";
 import "@/styles/globals.css";
-import Suspense from "@/components/ui/Suspense";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -44,9 +43,7 @@ export default function App({ Component, pageProps }: AppProps) {
         dir={pageProps.__lang === "ar" ? "rtl" : "ltr"}
         className={`${geistSans.variable} ${geistMono.variable}`}
       >
-        <Suspense>
-          <Component {...pageProps} />
-        </Suspense>
+        <Component {...pageProps} />
       </div>
     </Root>
   );

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-empty-object-type */
 import * as React from "react";
 
@@ -7,7 +8,22 @@ export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {}
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, ...props }, ref) => {
+  ({ className, type, value, onChange, ...props }, ref) => {
+    const handleIncrease = () => {
+      if (typeof value === "number" || typeof value === "string") {
+        const newValue = parseFloat(value as string) + 1;
+        onChange?.({ target: { value: newValue.toString() } } as any);
+      }
+    };
+
+    // Handle value decrement
+    const handleDecrease = () => {
+      if (typeof value === "number" || typeof value === "string") {
+        const newValue = parseFloat(value as string) - 1;
+        onChange?.({ target: { value: newValue.toString() } } as any);
+      }
+    };
+
     return (
       <div className="relative">
         <input
@@ -23,25 +39,65 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             className
           )}
           ref={ref}
+          value={value}
+          onChange={onChange}
           {...props}
         />
         {type === "number" && (
-          <svg
-            width="15"
-            height="15"
-            viewBox="0 0 15 15"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="absolute rtl:left-3 ltr:right-3 h-4 w-4 opacity-50 top-1/2 transform -translate-y-1/2"
-            aria-hidden="true"
+          <div
+            className={cn(
+              "flex justify-end items-center gap-x-1.5",
+              "absolute top-0 ltr:right-1 rtl:left-1 bottom-0 px-2"
+            )}
           >
-            <path
-              d="M4.93179 5.43179C4.75605 5.60753 4.75605 5.89245 4.93179 6.06819C5.10753 6.24392 5.39245 6.24392 5.56819 6.06819L7.49999 4.13638L9.43179 6.06819C9.60753 6.24392 9.89245 6.24392 10.0682 6.06819C10.2439 5.89245 10.2439 5.60753 10.0682 5.43179L7.81819 3.18179C7.73379 3.0974 7.61933 3.04999 7.49999 3.04999C7.38064 3.04999 7.26618 3.0974 7.18179 3.18179L4.93179 5.43179ZM10.0682 9.56819C10.2439 9.39245 10.2439 9.10753 10.0682 8.93179C9.89245 8.75606 9.60753 8.75606 9.43179 8.93179L7.49999 10.8636L5.56819 8.93179C5.39245 8.75606 5.10753 8.75606 4.93179 8.93179C4.75605 9.10753 4.75605 9.39245 4.93179 9.56819L7.18179 11.8182C7.35753 11.9939 7.64245 11.9939 7.81819 11.8182L10.0682 9.56819Z"
-              fill="currentColor"
-              fillRule="evenodd"
-              clipRule="evenodd"
-            ></path>
-          </svg>
+            <button
+              type="button"
+              className="size-5 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-input bg-background shadow-sm focus:outline-none disabled:opacity-50 disabled:pointer-events-none"
+              tabIndex={-1}
+              onClick={handleDecrease}
+              aria-label="Decrease"
+              data-hs-input-number-decrement=""
+            >
+              <svg
+                className="shrink-0 size-3.5"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M5 12h14"></path>
+              </svg>
+            </button>
+            <button
+              type="button"
+              className="size-5 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-input bg-background shadow-sm focus:outline-none disabled:opacity-50 disabled:pointer-events-none"
+              tabIndex={-1}
+              onClick={handleIncrease}
+              aria-label="Increase"
+              data-hs-input-number-increment=""
+            >
+              <svg
+                className="shrink-0 size-3.5"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M5 12h14"></path>
+                <path d="M12 5v14"></path>
+              </svg>
+            </button>
+          </div>
         )}
       </div>
     );
