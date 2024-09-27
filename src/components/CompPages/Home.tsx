@@ -18,6 +18,7 @@ export default function Home() {
   return (
     <div className="h-[calc(100vh-160px)] grid place-content-center">
       <h1>{t("welcome")}</h1>
+      <input />
       <MultiSelect
         options={frameworksList}
         onValueChange={setSelectedFrameworks}
