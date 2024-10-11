@@ -1,11 +1,14 @@
 import { useEffect } from "react";
-import type { AppProps } from "next/app";
+import type { AppContext, AppInitialProps, AppProps } from "next/app";
 import { useRouter } from "next/router";
 import localFont from "next/font/local";
 import Root from "@/components/Layouts/Root";
 
 import useLang from "@/hooks/useLang";
 import "@/styles/globals.css";
+import App from "next/app";
+import { ThemeProvider } from "@/components/common/theme-provider";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -18,7 +21,14 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-export default function App({ Component, pageProps }: AppProps) {
+type AppOwnProps = { example: string };
+
+export default function MyApp({
+  Component,
+  pageProps,
+  example,
+}: AppProps & AppOwnProps) {
+  console.log("🚀 ~ example:", example);
   const { lang } = useLang();
   const { locale } = useRouter();
 
@@ -38,13 +48,29 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [lang]);
 
   return (
-    <Root>
-      <div
-        dir={pageProps.__lang === "ar" ? "rtl" : "ltr"}
-        className={`${geistSans.variable} ${geistMono.variable}`}
-      >
-        <Component {...pageProps} />
-      </div>
-    </Root>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
+      <Root>
+        <div
+          dir={pageProps.__lang === "ar" ? "rtl" : "ltr"}
+          className={`${geistSans.variable} ${geistMono.variable}`}
+        >
+          <Component {...pageProps} />
+        </div>
+        <Toaster />
+      </Root>
+    </ThemeProvider>
   );
 }
+
+MyApp.getInitialProps = async (
+  context: AppContext
+): Promise<AppInitialProps & { example: string }> => {
+  const ctx = await App.getInitialProps(context);
+
+  return { ...ctx, example: "data" };
+};

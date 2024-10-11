@@ -16,9 +16,9 @@ const Logo: React.FC<IconProps> = (props) => (
       fill="white"
     />
     <path
-      d="M85 95L95 105L115 85"
+      d="M70 100L95 125L135 75"
       stroke="#4CAF50"
-      strokeWidth="10"
+      strokeWidth="12"
       strokeLinecap="round"
       strokeLinejoin="round"
     />

@@ -4,5 +4,6 @@
   "pages": {
     "*": ["common"]
   },
-  "defaultNS": "common"
+  "defaultNS": "common",
+  "logBuild": false
 }

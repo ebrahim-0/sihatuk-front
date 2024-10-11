@@ -1,13 +1,14 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, memo } from "react";
 import useLang from "@/hooks/useLang";
 import { checkClass, cn } from "@/lib/utils";
 import { ModeToggle } from "@/components/common/mode-toggle";
 import LanguageSwitcher from "@/components/common/LanguageSwitcher";
-import useSelector from "@/store/useSelector";
 import Logo from "@/assets/Logos/Logo";
 import MobileMenu from "@/components/Navbar/SideBar";
 import { links } from "@/components/Navbar/helper";
 import Link from "next/link";
+import { IsActiveLink } from "@/utils/IsActiveLink";
+import useSelector from "@/store/useSelector";
 
 const Navbar = ({ brandName }: { brandName: string }) => {
   const { t, lang } = useLang();
@@ -51,7 +52,6 @@ const Navbar = ({ brandName }: { brandName: string }) => {
           "flex",
           checkClass(["sm-phone", "phone", "tablet"].includes(screen), [
             "order-1 ltr:ml-auto rtl:mr-auto",
-            "",
           ])
         )}
       >
@@ -77,8 +77,11 @@ const Navbar = ({ brandName }: { brandName: string }) => {
               "group inline-flex h-9 items-center justify-center",
               "rounded-md px-4 py-2 text-md font-semibold transition-colors",
               "hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100",
-              "focus:text-gray-900 focus:outline-none capitalize"
-              // checkClass(isActive, ["bg-gray-100 text-gray-900", ""])
+              "focus:text-gray-900 focus:outline-none capitalize",
+              checkClass(IsActiveLink(link.to), [
+                "bg-gray-100 text-gray-900",
+                "",
+              ])
             )}
           >
             {link.label}
@@ -89,4 +92,4 @@ const Navbar = ({ brandName }: { brandName: string }) => {
   );
 };
 
-export default Navbar;
+export default memo(Navbar);

@@ -1,15 +1,13 @@
 import React, { useEffect } from "react";
 import Navbar from "@/components/Navbar/Navbar";
 import { cn } from "@/lib/utils";
-import { Toaster } from "react-hot-toast";
-import useDispatch from "@/store";
-import { ThemeProvider } from "@/components/common/theme-provider";
 import RenderMeta from "@/components/common/RenderMeta";
 import useLang from "@/hooks/useLang";
+import useDispatch from "@/store/useDispatch";
 
 const Root = ({ children }: { children: React.ReactNode }) => {
-  const { dispatch } = useDispatch();
   const { t } = useLang();
+  const { dispatch } = useDispatch();
 
   useEffect(() => {
     const observerResize = () => {
@@ -43,27 +41,19 @@ const Root = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <>
-      <ThemeProvider
-        attribute="class"
-        defaultTheme="system"
-        enableSystem
-        disableTransitionOnChange
-      >
-        <RenderMeta title={t("app.title")} description={t("app.description")} />
-        <div className="bg-background min-h-screen">
-          <Navbar brandName="test" />
-          <main className="min-h-[calc(100vh-160px)]">{children}</main>
-          <footer
-            className={cn(
-              "border-t border-border dark:border-border-dark",
-              "text-center p-4 h-20 w-full"
-            )}
-          >
-            Footer
-          </footer>
-        </div>
-        <Toaster />
-      </ThemeProvider>
+      <RenderMeta title={t("app.title")} description={t("app.description")} />
+      <div className="bg-background min-h-screen">
+        <Navbar brandName="test" />
+        <main className="min-h-[calc(100vh-160px)]">{children}</main>
+        <footer
+          className={cn(
+            "border-t border-border dark:border-border-dark",
+            "text-center p-4 h-20 w-full"
+          )}
+        >
+          Footer
+        </footer>
+      </div>
     </>
   );
 };

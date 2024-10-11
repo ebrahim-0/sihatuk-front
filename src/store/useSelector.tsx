@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import globalStore from "@/store";
+import globalStore from "@/store/useDispatch";
 
 const useSelector = (key: string | string[], defaultValue: any = "") => {
   const { state, dispatch } = globalStore();
@@ -8,13 +8,12 @@ const useSelector = (key: string | string[], defaultValue: any = "") => {
 
   if (Array.isArray(key)) {
     return key.map((k, index) => {
-      if (!(k in currentState)) {
-
-        dispatch({ [k]: defaultValue[index] });
-        // set((state) => ({
-        //   state: { ...state.state, [k]: defaultValue[index] },
-        // }));
-      }
+      // if (!(k in currentState)) {
+      //   dispatch({ [k]: defaultValue[index] });
+      //   // set((state) => ({
+      //   //   state: { ...state.state, [k]: defaultValue[index] },
+      //   // }));
+      // }
       return state[k] ?? defaultValue[index];
       // return currentState[k] ?? defaultValue[index];
     });
