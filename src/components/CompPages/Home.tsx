@@ -5,6 +5,7 @@ import { Cat, Dog, Fish, Rabbit, Turtle } from "lucide-react";
 import useSelector from "@/store/useSelector";
 import useDispatch from "@/store/useDispatch";
 import { Button } from "../ui/button";
+import { DispatchParams } from "@/ITypes";
 
 const frameworksList = [
   { value: "1", label: "React", icon: Turtle },
@@ -23,7 +24,7 @@ export default function Home() {
   const data = useSelector("data");
 
   const getData = async () => {
-    dispatch(async ({ state, addState, update }) => {
+    dispatch(async ({ state, addState, update }: DispatchParams) => {
       console.log("state", state);
       const data = state.data;
       if (data.isLoading) return;
@@ -80,7 +81,7 @@ export default function Home() {
         <p>Loading...</p>
       ) : (
         <ul>
-          {data.items.map((item: any) => (
+          {data.items.map((item: { id: number; title: string }) => (
             <li key={item.id}>{item.title}</li>
           ))}
         </ul>

@@ -2,6 +2,7 @@
 import { globalState } from "@/store/global-state";
 import { create } from "zustand";
 import createDispatch from "./createDispatch";
+import { DispatchParams } from "@/ITypes";
 
 interface GlobalState {
   state: Record<string, any>;
@@ -20,12 +21,6 @@ interface GlobalState {
 }
 
 const initialTempState = {};
-
-interface DispatchParams {
-  state: Record<string, any>;
-  addState: (newState: { [key: string]: any }, key?: string) => void;
-  update: (payload?: any, key?: string, cb?: (pa?: object) => void) => void;
-}
 
 const useDispatch = create<GlobalState>((set, get) => ({
   state: {
